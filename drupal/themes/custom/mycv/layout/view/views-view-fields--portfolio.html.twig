@@ -1,0 +1,46 @@
+<div class="tab-pane active" id="web-development">
+	<div class="ml-auto mr-auto">
+		<div class="row">
+			{% set projectType = fields.field_portfolio_name.content|striptags|trim %}
+			{{ kint(projectType) }}
+			{% if projectType == 'web-development' %}
+				<div class="col-md-6">
+					<div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+						<a href="#web-development">
+							<figure class="cc-effect">
+								<img src="{{ fields.field_project_image.content|striptags|trim }}" alt="Image"/>
+
+								<figcaption>
+									<div class="h4">{{ fields.field_project_name.content }}</div>
+									<p>{{ fields.field_project_type.content }}</p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<div class="tab-pane" id="graphic-design" role="tabpanel">
+	<div class="ml-auto mr-auto">
+		<div class="row">
+			{% if projectType == 'graphic_design' %}
+				<div class="col-md-6">
+					<div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+						<a href="#web-development">
+							<figure class="cc-effect">
+								<img src="{{ fields.field_project_image.content|striptags|trim }}" alt="Image"/>
+
+								<figcaption>
+									<div class="h4">{{ fields.field_project_name.content }}</div>
+									<p>{{ fields.field_project_type.content }}</p>
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div> 

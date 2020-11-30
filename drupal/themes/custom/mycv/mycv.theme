@@ -1,0 +1,4 @@
+<?php
+function myfunction (&$variables) {
+    kint($variables);
+}

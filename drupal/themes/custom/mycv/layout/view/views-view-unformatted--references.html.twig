@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{% if title %}
+	<h3>{{ title }}</h3>
+{% endif %}
+{% set unique = 'featured-image--id-' ~ random() %}
+
+<div class="section" id="reference">
+	<div class="container cc-reference">
+		<div class="h4 mb-4 text-center title">References</div>
+		<div class="card" data-aos="zoom-in">
+			<div class="carousel slide" id="cc-Indicators" data-ride="carousel">
+				<ol class="carousel-indicators">
+					{% for row in rows %}
+						<li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#cc-Indicators"></li>
+					{% endfor %}
+				</ol>
+				<div class="carousel-inner" role="list">
+					{% for row in rows %}
+						{{ row.content }}
+					{% endfor %}
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

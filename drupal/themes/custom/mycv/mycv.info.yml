@@ -1,0 +1,15 @@
+name: mycv
+type: theme
+base theme: classy
+description: 'Introduction page mycv'
+core: 8.x
+core-version-requirement: ^8 || ^9
+
+libraries:
+  - mycv/global-css
+  - mycv/global-js
+
+regions:
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'

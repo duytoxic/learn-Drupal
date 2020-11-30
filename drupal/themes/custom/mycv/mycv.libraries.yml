@@ -1,0 +1,17 @@
+global-css:
+  css:
+    theme:
+      //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+      css/aos.css: {}
+      css/bootstrap.min.css: {}
+      css/main.css: {}
+      
+global-js:
+  js:
+    js/aos.js: {}
+    js/core/bootstrap.min.js: {}
+    js/core/popper.min.js: {}  
+    js/core/jquery.3.2.1.min.js: {}
+    js/main.js: {}
+    js/now-ui-kit.js: {}
+
