@@ -1,0 +1,31 @@
+name: Appland
+type: theme
+base theme: classy
+description: 'learn drupal theming'
+core_version_requirement: ^8 || ^9
+
+libraries:
+  - appland/global-css
+  - appland/global-js
+
+regions:
+  header: Header
+  content: Content
+  hero_section: Hero_Section
+  app_features: App_Features
+  details: Details
+  gallery: Gallery
+  testimonials: Testimonials
+  pricing: Pricing
+  frequently_asked_question: Frequently Asked Question
+  contact_header : Contact Header
+  contact_bottom_left : Contact Bottom Left
+  footer_newsletter: Footer Newsletter
+  footer_center_first: Footer Center First
+  footer_center_second: Footer Center Second
+  footer_center_third: Footer Center Third
+  footer_center_fourth: Footer Center Fourth
+  footer_bottom: Footer Bottom
+
+
+  

@@ -1,0 +1,16 @@
+<div class="row">
+	{% for result in view.result %}
+		<div class="col-lg-6 info" data-aos="fade-up">
+			<i class="bx {{ view.field.field_contact_item_icon.value(view.result[loop.revindex0]) }}"></i>
+			<h4>
+				{{ view.field.field_contact_item_name.value(view.result[loop.revindex0]) }}
+			</h4>
+			{% set items = view.field.field_contact_item_content.value(view.result[loop.revindex0]) %}
+
+			{% for i in range(0, items|length - 1) %}
+
+				<p>{{ items[i] }}</p>
+			{% endfor %}			
+		</div>
+	{% endfor %}
+</div>

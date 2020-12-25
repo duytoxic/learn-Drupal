@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{# không cần file field_details #}
+
+{% for result in view.result %}
+	{% if loop.index is odd %}
+		<div class="row content">
+			<div class="col-md-4" data-aos="fade-right">
+				<img src="{{ view.style_plugin.getField(loop.revindex0, 'field_details_image')|striptags|trim }}" class="img-fluid" alt="photo">
+			</div>
+			<div class="col-md-8 pt-4" data-aos="fade-up">
+					<h3>{{ view.field.field_details_title.value(view.result[loop.revindex0])|striptags  }} </h3>
+				<p class="font-italic">
+					{{ view.field.field_details_description.value(view.result[loop.revindex0])|striptags }}
+				</p>
+				<ul>
+				{% set items = view.field.field_details_check_list.value(view.result[loop.revindex0]) %}
+					{% for item in items %}
+						{% if item|length > 0 %}
+							<li>
+								<i class="icofont-check"></i>
+								{{ item }}
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				<p>
+					{{ view.field.field_details_content.value(view.result[loop.revindex0])|striptags }}
+				</p>
+			</div>
+		</div>
+	
+	{% else %}
+	<div class="row content">		
+			<div class="col-md-8 pt-4" data-aos="fade-up">
+					<h3>{{ view.field.field_details_title.value(view.result[loop.revindex0])|striptags  }} </h3>
+				<p class="font-italic">
+					{{ view.field.field_details_description.value(view.result[loop.revindex0])|striptags }}
+				</p>
+				<ul>
+				{% set items = view.field.field_details_check_list.value(view.result[loop.revindex0]) %}
+					{% for item in items %}
+						{% if item|length > 0 %}
+							<li>
+								<i class="icofont-check"></i>
+								{{ item }}
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				<p>
+					{{ view.field.field_details_content.value(view.result[loop.revindex0])|striptags }}
+				</p>
+			</div>
+			<div class="col-md-4" data-aos="fade-left">
+				<img src="{{ view.style_plugin.getField(loop.revindex0, 'field_details_image')|striptags|trim }}" class="img-fluid" alt="photo">
+			</div>
+		</div>
+	{% endif %}	
+
+{% endfor %}
+

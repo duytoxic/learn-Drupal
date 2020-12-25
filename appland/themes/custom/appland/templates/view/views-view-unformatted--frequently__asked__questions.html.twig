@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{% if title %}
+	<h3>{{ title }}</h3>
+{% endif %}
+
+
+<div class="section-title">
+
+	<h2>Frequently Asked Questions</h2>
+	<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+		sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
+		ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+</div>
+<div class="accordion-list">
+	<ul>
+		{% for key, row in rows %}
+			<li data-aos="fade-up">
+				<i class="bx bx-help-circle icon-help"></i>
+				<a data-toggle="collapse" class="{{ key == 0 ? 'collapse' : 'collapsed' }} ml-4 text-decoration-none" href="#{{ view.style_plugin.getField(key, 'field_accordtion_list')|striptags|trim  }}">{{ view.style_plugin.getField(key, 'field_frequently_question')|striptags|trim }}
+					<i class="bx bx-chevron-up icon-close"></i>
+					<i class="bx bx-chevron-down icon-show"></i>
+				</a>
+				<div id="{{ view.style_plugin.getField(key, 'field_accordtion_list')|striptags|trim }}" class="collapse {{ key == 0 ? 'show' }}" data-parent=".accordion-list">
+					<p>
+						{{ view.style_plugin.getField(key, 'field_frequently_answer')|striptags|trim }}
+					</p>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
